@@ -79,7 +79,7 @@ input{font:inherit;font-size:16px}
 var firebaseApp={},fbAuth={currentUser:null,setPersistence:function(){return Promise.resolve()},onAuthStateChanged:function(){},signOut:function(){return Promise.resolve()}},mainDb=null,shopApp={},shopDb=null;
 var authPersistence=Promise.resolve();
 /* ───────── 설정 ───────── */
-var PID="timer-86a08",KEY=firebaseConfig.apiKey,ROOT="projects/"+PID+"/databases/(default)/documents",BASE="https://firestore.googleapis.com/v1/"+ROOT,COL="examPlannerShared";
+var PID="timer-86a08",KEY="",ROOT="projects/"+PID+"/databases/(default)/documents",BASE="https://firestore.googleapis.com/v1/"+ROOT,COL="examPlannerShared";
 var NA=(typeof window!=="undefined"&&window.Android)||null,clk=0;/* NA: 안드로이드 앱(APK) 안에서만 존재 */
 function nowMs(){return clk||Date.now()}
 var USE_FB=false;/* 오프라인 테스트: localStorage만 사용 */
@@ -471,7 +471,7 @@ $("#y").onclick=function(e){var el=e.target.closest("[data-a]");
   var a=el.dataset.a,v=el.dataset.v,id=el.dataset.id,sid=el.dataset.s;
   if(a.slice(0,2)==="a-"){
     if(a==="a-local")showAuth("local");else if(a==="a-login")showAuth("login");else if(a==="a-reg")showAuth("reg1");else if(a==="a-back")showAuth("chooser");
-    else if(a==="a-do")doLogin();else if(a==="a-r1")doReg1();else if(a==="a-r2")doReg2();else if(a==="a-r1b")showAuth("reg1");
+    else if(a==="a-do")doLogin();else if(a==="a-r1"){if(scr==="local")doLocal();else doReg1()}else if(a==="a-r2")doReg2();else if(a==="a-r1b")showAuth("reg1");
     else if(a==="a-retry")enter();else if(a==="a-out")logout();return}
   if(a==="to-refresh"){loadShop().then(teacherOrdersRender);return}
   if(a==="shop-admin-back"){tab="timer";anim=1;render();return}
