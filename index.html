@@ -117,13 +117,14 @@ async function dlist(prefix){
 }
 /* ───────── 상태 ───────── */
 var $=function(s){return document.querySelector(s)},p2=function(x){return String(x).padStart(2,"0")};
-var me=null,D=null,scr="chooser",tab="timer",tp="timer",lst=0,anim=1,sel="",cs="",cm={y:0,m:0},addTo="",pop=0,gv="list",gid="",gset=0,rsc="class",rper="d",rdate=today(),rsig="",bt="new",fv=0,adv="",ed="",dok=null,tmr=0,dirty=0,saveT=0,gl=0,bgL=0,pubs={},pubT=0,myG=[],grps=[],busy=0,ldr={sid:"",pw:""},reg={name:"",sid:""},aerr="",se=null;
+var me=null,D=null,scr="chooser",tab="timer",tp="timer",lst=0,anim=1,sel="",cs="",cm={y:0,m:0},addTo="",pop=0,gv="list",gid="",gset=0,rsc="class",rper="d",rdate="",rsig="",bt="new",fv=0,adv="",ed="",dok=null,tmr=0,dirty=0,saveT=0,gl=0,bgL=0,pubs={},pubT=0,myG=[],grps=[],busy=0,ldr={sid:"",pw:""},reg={name:"",sid:""},aerr="",se=null;
 var DD={s:"",st:0,du:0,rp:0};
 var ADMIN="10800",SHOP_ADMIN="10805",conf={tabs:{todo:1,cal:1,group:1,rank:1},lock:0,notice:""};
 var SHOP_DEFAULT={roulette:[{v:100,p:60},{v:150,p:15},{v:200,p:10},{v:0,p:10},{v:300,p:3},{v:500,p:2}],snack:{price:4000,win:20},gifts:[{id:"g1000",name:"구글 기프트카드 1,000원",price:25000,stock:1},{id:"g5000",name:"구글 기프트카드 5,000원",price:28000,stock:1},{id:"g10000",name:"구글 기프트카드 10,000원",price:31000,stock:1}],orders:[]};var shopCfg=null,shopBusy=0;
 var sum=function(a,b){return a+b};
 var key=function(d){return d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate())};
 var today=function(){return key(new Date())};
+rdate=today(); // today 함수가 준비된 뒤 랭킹 날짜를 초기화
 var T=function(s){s=Math.max(0,Math.floor(s));return Math.floor(s/3600)+":"+p2(Math.floor(s%3600/60))+":"+p2(s%60)};
 var hk=function(s){return Math.floor(s/3600)+"시간 "+Math.floor(s%3600/60)+"분"};
 var hm=function(ms){var d=new Date(ms),h=d.getHours();return (h<12?"오전 ":"오후 ")+(h%12||12)+":"+p2(d.getMinutes())};
